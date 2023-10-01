@@ -1,0 +1,6 @@
+applicationType: grpc
+defaultPackage: com.github
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [app-name, data, data-jpa, discovery-core, flyway, gradle, grpc, http-client-test, jdbc-hikari, junit, kotlin, kotlin-application, ksp, logback, micronaut-build, postgres, readme, serialization-jackson, shade, test-resources, yaml, yaml-build]
