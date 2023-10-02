@@ -1,46 +1,23 @@
-## Micronaut 4.1.2 Documentation
+## Jenny Admin API - WIP
 
-- [User Guide](https://docs.micronaut.io/4.1.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.1.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.1.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Esta aplicação tem como objetivo prover uma sistema de gerenciamento e controle na administação de uma loja virtual real (Jenny Joias).
 
-- [Protobuf Gradle Plugin](https://plugins.gradle.org/plugin/com.google.protobuf)
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature discovery-core documentation
+Neste Projeto temos a API que provem os dados para as lambdas de rotina e para o aplicativo mobile do usuário.
 
-- [Micronaut Discovery Core documentation](https://micronaut-projects.github.io/micronaut-discovery-client/latest/guide/)
+Neste projeto contemplará toda documentação, desenho da arquitetura e design utilizado.
 
+## Stack
 
-## Feature flyway documentation
+A stack escolhida é composta por:
 
-- [Micronaut Flyway Database Migration documentation](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/index.html)
+- Kotlin  com framework Micronaut + GraalVM (native-image) e servidor gRPC.
+- Postgres como banco relacional + JPA Hibernate como ORM de acesso + Flyway como ferramenta de migration.
+- Cloud Provider utilizamos AWS e alguns serviços como ECS, S3, SQS, Lambda Function e RDS.
 
-- [https://flywaydb.org/](https://flywaydb.org/)
+- Para as lambdas utilizaremos a linguagem Python com Pandas para manipular CSVs.
 
+- Como interface de usuário utilizaremos Flutter no desenvolvimento de aplicativos mobile hibrídos comunicando com esta API.
 
-## Feature serialization-jackson documentation
+## Design
 
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
-## Feature ksp documentation
-
-- [Micronaut Kotlin Symbol Processing (KSP) documentation](https://docs.micronaut.io/latest/guide/#kotlin)
-
-- [https://kotlinlang.org/docs/ksp-overview.html](https://kotlinlang.org/docs/ksp-overview.html)
-
-
-## Feature jdbc-hikari documentation
-
-- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
-
-
-## Feature test-resources documentation
-
-- [Micronaut Test Resources documentation](https://micronaut-projects.github.io/micronaut-test-resources/latest/guide/)
-
-
+Escolhemos como design o Clean Architecture que flexibiliza a troca de componentes da aplicação sem alteração no core de domínio, onde o futuro de ferramentas a serem utilizadas ainda é bem incerto.
