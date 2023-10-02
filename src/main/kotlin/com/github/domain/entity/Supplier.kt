@@ -3,11 +3,9 @@ package com.github.domain.entity
 import java.time.LocalDateTime
 import java.util.*
 
-class Supplier(name: String) {
+class Supplier(val name: String, val description: String, val site: String) {
     val id = UUID.randomUUID()
-    val name = name.uppercase()
-    val createdAt = LocalDateTime.now()
-    val slug = slugfy(name)
-
-    fun slugfy(name: String) = name
+    val slug = name
+    val rate = 5.0
+    val orders: List<String> = listOf()
 }
