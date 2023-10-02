@@ -7,14 +7,15 @@ option objc_class_prefix = "HLW";
 
 package com.github;
 
-service JennyAdminApiService {
-  rpc send (JennyAdminApiRequest) returns (JennyAdminApiReply) {}
+service SupplierService {
+  rpc create(SupplierRequest) returns (SupplierReply) {}
 }
 
-message JennyAdminApiRequest {
+message SupplierRequest {
   string name = 1;
 }
 
-message JennyAdminApiReply {
-  string message = 1;
+message SupplierReply {
+  string id = 1;
+  string name = 2;
 }

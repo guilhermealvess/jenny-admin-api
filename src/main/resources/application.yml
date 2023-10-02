@@ -6,6 +6,11 @@ datasources:
     driver-class-name: org.postgresql.Driver
     db-type: postgres
     dialect: POSTGRES
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: example
+    minPoolSize: 1
+    maxPoolSize: 10
 jpa:
   default:
     properties:
@@ -16,3 +21,5 @@ flyway:
   datasources:
     default:
       enabled: true
+      sensitive: true
+  locations: classpath:db/migration
