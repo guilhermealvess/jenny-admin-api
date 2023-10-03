@@ -24,7 +24,7 @@ class Order(
     val paymentType: OrderPaymentType,
     private var status: OrderStatus,
     val ownerContact: Contact?,
-    private var imagesUrl: MutableList<String>,
+    private var imagesUrl: MutableList<String>?,
     val createdAt: LocalDateTime,
     val createdBy: String,
     private var updatedAt: LocalDateTime,
@@ -44,7 +44,7 @@ class Order(
 
 class Contact(val phoneNumber: String, name: String, alias: String)
 
-fun factoryNewOrder(label: String, paymentType: OrderPaymentType, ownerContact: Contact?, imagesUrl: MutableList<String>, createdBy: String): Order {
+fun factoryNewOrder(label: String, paymentType: OrderPaymentType, ownerContact: Contact?, imagesUrl: MutableList<String>?, createdBy: String): Order {
     val now = LocalDateTime.now()
     return Order(
         UUID.randomUUID(),

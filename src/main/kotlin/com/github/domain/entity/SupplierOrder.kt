@@ -42,6 +42,73 @@ class SupplierOrder(
         }
     }
 
+    class Builder {
+        private lateinit var label: String
+        private var freightValue: UInt = 0u
+        private lateinit var responsible: String
+        private var receivedAt: LocalDateTime? = null
+        private lateinit var orderId: String
+        private lateinit var paymentType: PaymentType
+        private lateinit var safeDateExpire: LocalDateTime
+        private lateinit var status: SupplierOrderStatus
+        private lateinit var createdBy: String
+        private lateinit var createdAt: LocalDateTime
+        private lateinit var updatedAt: LocalDateTime
+
+        fun setLabel(label: String): Builder {
+            this.label = label
+            return this
+        }
+
+        fun setFreightValue(freightValue: UInt): Builder {
+            this.freightValue = freightValue
+            return this
+        }
+
+        fun setResponsible(responsible: String): Builder {
+            this.responsible = responsible
+            return this
+        }
+
+        fun setOrderId(orderId: String): Builder {
+            this.orderId = orderId
+            return this
+        }
+
+        fun setPaymentType(paymentType: PaymentType): Builder {
+            this.paymentType = paymentType
+            return this
+        }
+
+        fun setSafeDateExpire(safeDateExpire: LocalDateTime): Builder {
+            this.safeDateExpire
+            return this
+        }
+
+        fun setCreatedBy(createdBy: String): Builder {
+            this.createdBy = createdBy
+            return this
+        }
+
+        fun build(): SupplierOrder {
+            val now = LocalDateTime.now()
+            return SupplierOrder(
+                UUID.randomUUID(),
+                label,
+                freightValue,
+                responsible,
+                receivedAt,
+                orderId,
+                paymentType,
+                safeDateExpire,
+                status,
+                createdBy,
+                now,
+                now
+            )
+        }
+    }
+
     fun applyReceive() {
         val now = LocalDateTime.now()
         this.receivedAt = now
@@ -49,30 +116,3 @@ class SupplierOrder(
         this.status = SupplierOrderStatus.RECEIVED
     }
 }
-
-fun factoryNewSupplierOrder(
-    label: String,
-    freightValue: UInt,
-    responsible: String,
-    orderId: String,
-    paymentType: PaymentType,
-    safeDateExpire: LocalDateTime,
-    createdBy: String,
-): SupplierOrder {
-    val now = LocalDateTime.now()
-    return SupplierOrder(
-        UUID.randomUUID(),
-        label.uppercase(),
-        freightValue,
-        responsible,
-        null,
-        orderId,
-        paymentType,
-        safeDateExpire,
-        SupplierOrderStatus.PENDING,
-        createdBy,
-        now,
-        now,
-    )
-}
-
